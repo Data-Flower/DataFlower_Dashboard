@@ -1,0 +1,19 @@
+{
+  "name": "myserver",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@aws-cdk/aws-elasticbeanstalk": "1.198.1",
+    "@aws-cdk/aws-iam": "1.198.1",
+    "@aws-cdk/aws-s3-assets": "1.198.1",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2"
+  }
+}
