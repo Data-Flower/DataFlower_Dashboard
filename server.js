@@ -15,7 +15,7 @@ app.listen(port, function () {
 });
 
 app.get('/', function (req, res) {
-    html = fs.readFileSync('views/index.html');
+    html = fs.readFileSync('samples/index.html');
     res.writeHead(200);
     // res.render('index');
     res.write(html);
@@ -102,7 +102,7 @@ app.get('/apex/:tp/:id', (req, res) => {
     const id = req.params.id;
 
     // console.log('hello');
-    let filePath = `views/apex/${tp}/apex_${tp}_${id}.html`;
+    let filePath = `samples/apex/${tp}/apex_${tp}_${id}.html`;
     console.log(`filePath: ${filePath}`);
 
     res.sendFile(path.join(__dirname, filePath));
