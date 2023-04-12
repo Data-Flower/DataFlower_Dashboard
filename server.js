@@ -1,14 +1,17 @@
 const express = require('express');
 const path = require('path');
+const mime = require('mime-types');
 const app = express();
-const mime = require('mime');
 
 const fs = require('fs');
 const port = 8080;
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '/public/')));
 
-app.set('view engine', 'ejs');
+app.get('/css/style.css', (req, res) => {
+    console.log(path.join(__dirname, 'css', 'style.css'));
+    res.sendFile(path.join(__dirname, 'css', 'style.css'));
+});
 
 app.listen(port, function () {
     console.log('listening on ', port);
@@ -75,7 +78,7 @@ app.get('/apex/1', (req, res) => {
 //     console.log(`filePath: ${filePath}`);
 
 //     // html = fs.readFileSync(`views/apex/line/apex_line_${id}.html`);
-    
+
 //     res.sendFile(path.join(__dirname, `views/apex/line/apex_line_${id}.html`));
 
 //     // res.render('apex/line/apex_line_2');
@@ -91,7 +94,7 @@ app.get('/apex/1', (req, res) => {
 
 //     let filePath = `views/apex/area/apex_area_${id}.html`;
 //     console.log(`filePath: ${filePath}`);
-    
+
 //     res.sendFile(path.join(__dirname, filePath));
 //     // 1 area
 //     // 2 spline

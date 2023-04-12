@@ -13,7 +13,6 @@
     "@aws-cdk/aws-elasticbeanstalk": "1.198.1",
     "@aws-cdk/aws-iam": "1.198.1",
     "@aws-cdk/aws-s3-assets": "1.198.1",
-    "ejs": "^3.1.9",
     "express": "^4.18.2"
   }
 }
