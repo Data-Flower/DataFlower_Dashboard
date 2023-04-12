@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+</head>
+
+<body>
+    <div id="chart"></div>
+    <script>
+        var options = {
+            series: [{
+                name: 'Metric1',
+                data: generateData(20, {
+                    min: 0,
+                    max: 90
+                })
+            },
+            {
+                name: 'Metric2',
+                data: generateData(20, {
+                    min: 0,
+                    max: 90
+                })
+            },
+            {
+                name: 'Metric3',
+                data: generateData(20, {
+                    min: 0,
+                    max: 90
+                })
+            },
+            {
+                name: 'Metric4',
+                data: generateData(20, {
+                    min: 0,
+                    max: 90
+                })
+            },
+            {
+                name: 'Metric5',
+                data: generateData(20, {
+                    min: 0,
+                    max: 90
+                })
+            },
+            {
+                name: 'Metric6',
+                data: generateData(20, {
+                    min: 0,
+                    max: 90
+                })
+            },
+            {
+                name: 'Metric7',
+                data: generateData(20, {
+                    min: 0,
+                    max: 90
+                })
+            },
+            {
+                name: 'Metric8',
+                data: generateData(20, {
+                    min: 0,
+                    max: 90
+                })
+            },
+            {
+                name: 'Metric8',
+                data: generateData(20, {
+                    min: 0,
+                    max: 90
+                })
+            }
+            ],
+            chart: {
+                height: 350,
+                type: 'heatmap',
+            },
+            stroke: {
+                width: 0
+            },
+            plotOptions: {
+                heatmap: {
+                    radius: 30,
+                    enableShades: false,
+                    colorScale: {
+                        ranges: [{
+                            from: 0,
+                            to: 50,
+                            color: '#008FFB'
+                        },
+                        {
+                            from: 51,
+                            to: 100,
+                            color: '#00E396'
+                        },
+                        ],
+                    },
+
+                }
+            },
+            dataLabels: {
+                enabled: true,
+                style: {
+                    colors: ['#fff']
+                }
+            },
+            xaxis: {
+                type: 'category',
+            },
+            title: {
+                text: 'Rounded (Range without Shades)'
+            },
+        };
+
+        var chart = new ApexCharts(document.querySelector("#chart"), options);
+        chart.render();
+    </script>
+</body>
+
+</html>
