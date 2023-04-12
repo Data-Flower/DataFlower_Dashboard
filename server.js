@@ -101,7 +101,7 @@ app.get('/apex/:tp/:id', (req, res) => {
     const tp = req.params.tp;
     const id = req.params.id;
 
-    console.log('hello');
+    // console.log('hello');
     let filePath = `views/apex/${tp}/apex_${tp}_${id}.html`;
     console.log(`filePath: ${filePath}`);
 
