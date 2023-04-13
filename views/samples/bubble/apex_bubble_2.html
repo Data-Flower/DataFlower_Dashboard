@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+</head>
+
+<body>
+    <div id="chart"></div>
+    <script>
+        // function generateData(count, yrange) {
+        //     var i = 0;
+        //     var series = [];
+        //     while (i < count) {
+        //         var x = (i + 1).toString();
+        //         var y =
+        //             Math.floor(Math.random() * (yrange.max - yrange.min + 1)) + yrange.min;
+
+        //         series.push({
+        //             x: x,
+        //             y: y
+        //         });
+        //         i++;
+        //     }
+        //     return series;
+        // }
+
+        var options = {
+            series: [{
+                name: 'Product1',
+                data: generateData(new Date('11 Feb 2017 GMT').getTime(), 20, {
+                    min: 10,
+                    max: 60
+                })
+            },
+            {
+                name: 'Product2',
+                data: generateData(new Date('11 Feb 2017 GMT').getTime(), 20, {
+                    min: 10,
+                    max: 60
+                })
+            },
+            {
+                name: 'Product3',
+                data: generateData(new Date('11 Feb 2017 GMT').getTime(), 20, {
+                    min: 10,
+                    max: 60
+                })
+            },
+            {
+                name: 'Product4',
+                data: generateData(new Date('11 Feb 2017 GMT').getTime(), 20, {
+                    min: 10,
+                    max: 60
+                })
+            }],
+            chart: {
+                height: 350,
+                type: 'bubble',
+            },
+            dataLabels: {
+                enabled: false
+            },
+            fill: {
+                type: 'gradient',
+            },
+            title: {
+                text: '3D Bubble Chart'
+            },
+            xaxis: {
+                tickAmount: 12,
+                type: 'datetime',
+                labels: {
+                    rotate: 0,
+                }
+            },
+            yaxis: {
+                max: 70
+            },
+            theme: {
+                palette: 'palette2'
+            }
+        };
+
+        var chart = new ApexCharts(document.querySelector("#chart"), options);
+        chart.render();
+    </script>
+</body>
+
+</html>
