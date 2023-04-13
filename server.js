@@ -25,6 +25,11 @@ app.use(express.static(path.join(__dirname, '/public/')));
 //     res.render('pages/about');
 // });
 
+app.get('/', (req, res) => {
+
+    res.render('pages/home');
+});
+
 app.get('/css/:name.css', (req, res) => {
     const name = req.params.name;
 

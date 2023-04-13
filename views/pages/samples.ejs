@@ -5,102 +5,99 @@
     <%- include('../partials/head'); %>
 </head>
 
-<body class="container">
-    <header><%- include('../partials/header'); %></header>
+<body>
+    <div class="container">
+        <header><%- include('../partials/header'); %></header>
 
-    <!-- contents -->
+        <!-- contents -->
+        <div class="contents">
 
-    <!-- <main>
-        <div class="jumbotron">
-            <h1>This is Home Page</h1>
-            <p>Welcome to Code Techies...</p>
-        </div>
-    </main> -->
-
-    <h1>Welcome to the demo for ElasticBeanstalk</h1>
-    <!-- <a href="/test">Call the test API</a><br>
+            <h1>Welcome to the demo for ElasticBeanstalk</h1>
+            <!-- <a href="/test">Call the test API</a><br>
         <a href="/graph">test graph 1</a><br>
         <a href="/dynamic-page">test graph 2</a><br>
         <a href="/">index</a><br> -->
-    <a href="/apex/line/1">Line: Basic Line Chart</a><br>
-    <a href="/apex/line/2">Line: Line Chart with dataLabels</a><br>
-    <br>
-    <a href="/apex/area/1">Area: Basic Area Chart</a><br>
-    <a href="/apex/area/2">Area: Spline area</a><br>
-    <br>
-    <a href="/apex/bar/1">Bar: Basic Column Chart</a><br>
-    <a href="/apex/bar/2">Bar: Column Chart with dataLabels</a><br>
-    <a href="/apex/bar/3">Bar: Stacked Column Chart</a><br>
-    <a href="/apex/bar/4">Bar: 100% Stacked Column Chart</a><br>
-    <a href="/apex/bar/5">Bar: Column Chart with Markers</a><br>
-    <a href="/apex/bar/6">Bar: Column Chart with Grouped X-Axis labels</a><br>
-    <br>
-    <a href="/apex/mixed/1">Mixed: Line & Column Chart</a><br>
-    <a href="/apex/mixed/2">Mixed: Multiple Y-axis Chart</a><br>
-    <a href="/apex/mixed/3">Mixed: Line & Area Chart</a><br>
-    <a href="/apex/mixed/4">Mixed: Line, Column & Area Chart</a><br>
-    <br>
-    <a href="/apex/range/1">Range Area: Basic-Area Chart</a><br>
-    <a href="/apex/range/2">Range Area: Range-Area With Line (Combo)</a><br>
-    <br>
-    <a href="/apex/timeline/1">Timeline/Range-Bars: Basic Timeline Chart</a><br>
-    <a href="/apex/timeline/2">Timeline/Range-Bars: Different Color For Each Bar</a><br>
-    <a href="/apex/timeline/3">Timeline/Range-Bars: Multi-Series Timeline</a><br>
-    <a href="/apex/timeline/4">Timeline/Range-Bars: Advanced Timeline (Multiple Range)</a><br>
-    <a href="/apex/timeline/5">Timeline/Range-Bars: Timeline-Grouped Rows</a><br>
-    <br>
-    <a href="/apex/candlestick/1">Candlestick: Basic Candlestick Chart</a><br>
-    <a href="/apex/candlestick/2">Candlestick: Candlestick Synced with a Brush Chart</a><br>
-    <a href="/apex/candlestick/3">Candlestick: Candlestick with Category X-axis</a><br>
-    <a href="/apex/candlestick/4">Candlestick: Candlestick Line Combo</a><br>
-    <br>
-    <a href="/apex/boxplot/1">Boxplot: Basic box & Whisker Chart</a><br>
-    <a href="/apex/boxplot/2">Boxplot: Boxplot with Scatter Chart</a><br>
-    <a href="/apex/boxplot/3">Boxplot: Horizontal Boxplot Chart</a><br>
-    <br>
-    <a href="/apex/bubble/1">Bubble: Simple Bubble Chart</a><br>
-    <a href="/apex/bubble/2">Bubble: 3D Bubble Chart</a><br>
-    <br>
-    <a href="/apex/scatter/1">Scatter: Scatter (XY) Chart</a><br>
-    <a href="/apex/scatter/2">Scatter: Scatter Chart - Datetime</a><br>
-    <a href="/apex/scatter/3">Scatter: Scatter - Image full</a><br>
-    <br>
-    <a href="/apex/heatmap/1">Heatmap: Basic Heatmap - Single Series</a><br>
-    <a href="/apex/heatmap/2">Heatmap: Heatmap - Multiple Series</a><br>
-    <a href="/apex/heatmap/3">Heatmap: Heatmap - Color Range</a><br>
-    <a href="/apex/heatmap/4">Heatmap: Heatmap - Range Without Shades</a><br>
-    <br>
-    <a href="/apex/treemap/1">Treemap: Basic Treemap Chart</a><br>
-    <a href="/apex/treemap/2">Treemap: Multi-Dimensional Treemap Chart</a><br>
-    <a href="/apex/treemap/3">Treemap: Distributed Treemap Chart (Set Color For Each cell)</a><br>
-    <a href="/apex/treemap/4">Treemap: Treemap Chart with Color Ranges</a><br>
-    <br>
-    <a href="/apex/pie/1">Pie: Simple Pie Chart</a><br>
-    <a href="/apex/pie/2">Pie: Simple Donut Chart</a><br>
-    <a href="/apex/pie/3">Pie: Updating Donut Chart</a><br>
-    <a href="/apex/pie/4">Pie: Monochrome Chart</a><br>
-    <a href="/apex/pie/5">Pie: Gradient Donut Chart</a><br>
-    <a href="/apex/pie/6">Pie: Patterned Donut Chart</a><br>
-    <a href="/apex/pie/7">Pie: Pie Chart with Image Fill</a><br>
-    <br>
-    <a href="/apex/radial/1">Radial: Basic Radial Chart</a><br>
-    <a href="/apex/radial/2">Radial: Multiple Radialbars</a><br>
-    <a href="/apex/radial/3">Radial: Circle Chart - Custom Angle</a><br>
-    <a href="/apex/radial/4">Radial: Gradient Circle Chart</a><br>
-    <a href="/apex/radial/5">Radial: Stroked Circular Gauge</a><br>
-    <a href="/apex/radial/6">Radial: Semi Circular Gauge</a><br>
-    <a href="/apex/radial/7">Radial: Circle Chart with Image</a><br>
-    <br>
-    <a href="/apex/radar/1">Radar: Basic Radar Chart</a><br>
-    <a href="/apex/radar/2">Radar: Radar Chart - Multiple Series</a><br>
-    <a href="/apex/radar/3">Radar: Radar Chart - Polygon</a><br>
-    <br>
-    <a href="/apex/polararea/1">Polar Area: Basic Polar-Area Chart</a><br>
-    <a href="/apex/polararea/2">Polar Area: Polar-Area Monochrome</a><br>
-    <br>
-    <!-- <a href="/">index</a><br> -->
+            <a href="/apex/line/1">Line: Basic Line Chart</a><br>
+            <a href="/apex/line/2">Line: Line Chart with dataLabels</a><br>
+            <br>
+            <a href="/apex/area/1">Area: Basic Area Chart</a><br>
+            <a href="/apex/area/2">Area: Spline area</a><br>
+            <br>
+            <a href="/apex/bar/1">Bar: Basic Column Chart</a><br>
+            <a href="/apex/bar/2">Bar: Column Chart with dataLabels</a><br>
+            <a href="/apex/bar/3">Bar: Stacked Column Chart</a><br>
+            <a href="/apex/bar/4">Bar: 100% Stacked Column Chart</a><br>
+            <a href="/apex/bar/5">Bar: Column Chart with Markers</a><br>
+            <a href="/apex/bar/6">Bar: Column Chart with Grouped X-Axis labels</a><br>
+            <br>
+            <a href="/apex/mixed/1">Mixed: Line & Column Chart</a><br>
+            <a href="/apex/mixed/2">Mixed: Multiple Y-axis Chart</a><br>
+            <a href="/apex/mixed/3">Mixed: Line & Area Chart</a><br>
+            <a href="/apex/mixed/4">Mixed: Line, Column & Area Chart</a><br>
+            <br>
+            <a href="/apex/range/1">Range Area: Basic-Area Chart</a><br>
+            <a href="/apex/range/2">Range Area: Range-Area With Line (Combo)</a><br>
+            <br>
+            <a href="/apex/timeline/1">Timeline/Range-Bars: Basic Timeline Chart</a><br>
+            <a href="/apex/timeline/2">Timeline/Range-Bars: Different Color For Each Bar</a><br>
+            <a href="/apex/timeline/3">Timeline/Range-Bars: Multi-Series Timeline</a><br>
+            <a href="/apex/timeline/4">Timeline/Range-Bars: Advanced Timeline (Multiple Range)</a><br>
+            <a href="/apex/timeline/5">Timeline/Range-Bars: Timeline-Grouped Rows</a><br>
+            <br>
+            <a href="/apex/candlestick/1">Candlestick: Basic Candlestick Chart</a><br>
+            <a href="/apex/candlestick/2">Candlestick: Candlestick Synced with a Brush Chart</a><br>
+            <a href="/apex/candlestick/3">Candlestick: Candlestick with Category X-axis</a><br>
+            <a href="/apex/candlestick/4">Candlestick: Candlestick Line Combo</a><br>
+            <br>
+            <a href="/apex/boxplot/1">Boxplot: Basic box & Whisker Chart</a><br>
+            <a href="/apex/boxplot/2">Boxplot: Boxplot with Scatter Chart</a><br>
+            <a href="/apex/boxplot/3">Boxplot: Horizontal Boxplot Chart</a><br>
+            <br>
+            <a href="/apex/bubble/1">Bubble: Simple Bubble Chart</a><br>
+            <a href="/apex/bubble/2">Bubble: 3D Bubble Chart</a><br>
+            <br>
+            <a href="/apex/scatter/1">Scatter: Scatter (XY) Chart</a><br>
+            <a href="/apex/scatter/2">Scatter: Scatter Chart - Datetime</a><br>
+            <a href="/apex/scatter/3">Scatter: Scatter - Image full</a><br>
+            <br>
+            <a href="/apex/heatmap/1">Heatmap: Basic Heatmap - Single Series</a><br>
+            <a href="/apex/heatmap/2">Heatmap: Heatmap - Multiple Series</a><br>
+            <a href="/apex/heatmap/3">Heatmap: Heatmap - Color Range</a><br>
+            <a href="/apex/heatmap/4">Heatmap: Heatmap - Range Without Shades</a><br>
+            <br>
+            <a href="/apex/treemap/1">Treemap: Basic Treemap Chart</a><br>
+            <a href="/apex/treemap/2">Treemap: Multi-Dimensional Treemap Chart</a><br>
+            <a href="/apex/treemap/3">Treemap: Distributed Treemap Chart (Set Color For Each cell)</a><br>
+            <a href="/apex/treemap/4">Treemap: Treemap Chart with Color Ranges</a><br>
+            <br>
+            <a href="/apex/pie/1">Pie: Simple Pie Chart</a><br>
+            <a href="/apex/pie/2">Pie: Simple Donut Chart</a><br>
+            <a href="/apex/pie/3">Pie: Updating Donut Chart</a><br>
+            <a href="/apex/pie/4">Pie: Monochrome Chart</a><br>
+            <a href="/apex/pie/5">Pie: Gradient Donut Chart</a><br>
+            <a href="/apex/pie/6">Pie: Patterned Donut Chart</a><br>
+            <a href="/apex/pie/7">Pie: Pie Chart with Image Fill</a><br>
+            <br>
+            <a href="/apex/radial/1">Radial: Basic Radial Chart</a><br>
+            <a href="/apex/radial/2">Radial: Multiple Radialbars</a><br>
+            <a href="/apex/radial/3">Radial: Circle Chart - Custom Angle</a><br>
+            <a href="/apex/radial/4">Radial: Gradient Circle Chart</a><br>
+            <a href="/apex/radial/5">Radial: Stroked Circular Gauge</a><br>
+            <a href="/apex/radial/6">Radial: Semi Circular Gauge</a><br>
+            <a href="/apex/radial/7">Radial: Circle Chart with Image</a><br>
+            <br>
+            <a href="/apex/radar/1">Radar: Basic Radar Chart</a><br>
+            <a href="/apex/radar/2">Radar: Radar Chart - Multiple Series</a><br>
+            <a href="/apex/radar/3">Radar: Radar Chart - Polygon</a><br>
+            <br>
+            <a href="/apex/polararea/1">Polar Area: Basic Polar-Area Chart</a><br>
+            <a href="/apex/polararea/2">Polar Area: Polar-Area Monochrome</a><br>
+            <br>
+            <!-- <a href="/">index</a><br> -->
 
-    <footer><%- include('../partials/footer'); %></footer>
+        </div>
+        <footer><%- include('../partials/footer'); %></footer>
+    </div>
 </body>
 
 </html>

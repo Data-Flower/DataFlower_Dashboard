@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My Page</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+
+        main {
+            display: flex;
+            flex: 1;
+        }
+
+        aside {
+            background-color: #ccc;
+            flex: 0 0 200px;
+            height: calc(100vh - 60px - 40px);
+            /* subtract header and footer heights */
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        section {
+            flex: 1;
+            padding: 20px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>My Page</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Link 1</a></li>
+                <li><a href="#">Link 2</a></li>
+                <li><a href="#">Link 3</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <aside>
+            <h2>Side Navbar</h2>
+            <ul>
+                <li><a href="#">Link 1</a></li>
+                <li><a href="#">Link 2</a></li>
+                <li><a href="#">Link 3</a></li>
+            </ul>
+        </aside>
+        <section>
+            <h2>Contents</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae velit eget massa consectetur
+                ullamcorper quis eu nisl. Fusce quis justo euismod, molestie eros vel, aliquam arcu. Aenean euismod,
+                nisi non tempus bibendum, nisl tellus aliquam lectus, id luctus nibh lorem nec ipsum. Sed vel augue id
+                metus luctus convallis. Ut sodales vel velit sit amet malesuada. Morbi convallis luctus ante, nec
+                volutpat elit laoreet at. Etiam nec metus et lectus tincidunt vestibulum.</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 My Company</p>
+    </footer>
+</body>
+
+</html>
