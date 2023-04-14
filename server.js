@@ -1,14 +1,21 @@
+const AWS = require('aws-sdk');
 const express = require('express');
 const path = require('path');
-// const mime = require('mime-types');
 
 const app = express();
 app.set("view engine", "ejs");
 
+require('dotenv').config();
 const fs = require('fs');
 const port = 8080;
 
 app.use(express.static(path.join(__dirname, '/public/')));
+
+
+app.get('/test', (req, res) => {
+    console.log(process.env.Hello);
+    res.send('Hello World!');
+});
 
 // const data = {
 //     title: 'My Page Title',

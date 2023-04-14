@@ -56,7 +56,7 @@ header a {
     color: #ff9900;
 }
 
-button {
+header button {
     padding: 9px 25px;
     background-color: rgba(0, 136, 169, 1);
     border: none;
@@ -75,12 +75,36 @@ main {
 }
 
 aside {
-    background-color: #ccc;
-    flex: 0 0 200px;
+    background-color: #eee;
+    flex: 0 0 250px;
     height: calc(100vh - 60px - 20px);
     /* subtract header and footer heights */
     overflow-y: auto;
-    padding: 20px;
+    padding: 0px;
+}
+
+aside h2 {
+    padding: 15px;
+    font-size: 20px;
+    font-weight: 500;
+    color: #333;
+}
+
+aside button {
+    cursor: pointer;
+    background-color: #ddd;
+    border: 0;
+    padding: 0;
+    width: 100%;
+    height: 50px;
+    
+    /* border radius on */
+    /* border-radius: 10px; */
+}
+
+aside button:hover {
+    background-color: #ccc;
+    /* border-radius: 10px; */
 }
 
 section {
