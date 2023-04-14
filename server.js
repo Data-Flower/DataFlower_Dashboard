@@ -11,26 +11,83 @@ const port = 8080;
 
 app.use(express.static(path.join(__dirname, '/public/')));
 
+AWS.config.update({
+    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+})
 
-app.get('/test', (req, res) => {
+const s3 = new AWS.S3();
+
+app.get('/data/NH/test', (req, res) => {
     console.log(process.env.Hello);
-    res.send('Hello World!');
+    console.log(process.env.AWS_ACCESS_KEY_ID);
+    console.log(process.env.AWS_SECRET_ACCESS_KEY);
+    console.log(process.env.AWS_BUCKET_NAME);
+    console.log(process.env.AWS_BUCKET_KEY_1);
+    console.log(process.env.AWS_BUCKET_KEY_2);
+    console.log(process.env.AWS_BUCKET_KEY_3);
+    // res.send('Hello World!');
+
+    const bucketName = process.env.AWS_BUCKET_NAME;
+    const key = process.env.AWS_BUCKET_KEY_3;
+
+    const params = {
+        Bucket: bucketName,
+        Key: key
+    }
+
+    var _data = {};
+
+    s3.getObject(params, (err, data) => {
+        if (err) {
+            console.log(err);
+        }
+        else {
+            // console.log(data.Body.toString());
+            _data = data.Body.toString();
+            res.send(_data);
+        }
+    });
 });
 
-// const data = {
-//     title: 'My Page Title',
-//     content: 'This is my page content.',
-// };
-// res.render('index', data);
+app.get('/data/NH/:id', (req, res) => {
 
-// app.get('/pages/home', (req, res) => {
+    const id = req.params.id;
+    const bucketName = process.env.AWS_BUCKET_NAME;
 
-//     res.render('pages/home');
-// });
+    let key = '';
+    switch (id) {
+        case '1':
+            key = process.env.AWS_BUCKET_KEY_1;
+            break;
+        case '2':
+            key = process.env.AWS_BUCKET_KEY_2;
+            break;
+        case '3':
+            key = process.env.AWS_BUCKET_KEY_3;
+            break;
+    }
 
-// app.get('/pages/about', (req, res) => {
-//     res.render('pages/about');
-// });
+    const params = {
+        Bucket: bucketName,
+        Key: key
+    }
+
+    var _data = {};
+
+    s3.getObject(params, (err, data) => {
+        if (err) {
+            console.log(err);
+        }
+        else {
+            // console.log(data.Body.toString());
+            _data = data.Body.toString();
+            res.send(_data);
+        }
+    });
+
+    // res.send(key);
+});
 
 app.get('/', (req, res) => {
 
@@ -70,15 +127,6 @@ app.get('/pages/:name', (req, res) => {
 app.listen(port, function () {
     console.log('listening on ', port);
 });
-
-// app.get('/pages/samples', function (req, res) {
-//     // html = fs.readFileSync('samples/index.html');
-//     // res.writeHead(200);
-//     // // res.render('index');
-//     // res.write(html);
-//     // res.end();
-//     res.render('pages/samples');
-// });
 
 app.get('/apex/:tp/:id', (req, res) => {
     const tp = req.params.tp;
