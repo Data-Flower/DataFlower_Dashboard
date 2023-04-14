@@ -44,6 +44,13 @@ app.get('/icons/:name.png', (req, res) => {
     res.sendFile(path.join(__dirname, `icons/${name}.png`));
 });
 
+app.get('/icons/:name.svg', (req, res) => {
+    const name = req.params.name;
+
+    // console.log(path.join(__dirname, `icons/${name}.png`));
+    res.sendFile(path.join(__dirname, `icons/${name}.svg`));
+});
+
 app.get('/pages/:name', (req, res) => {
 
     const name = req.params.name;
