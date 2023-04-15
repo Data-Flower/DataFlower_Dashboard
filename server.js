@@ -258,7 +258,7 @@ app.get('/data/2', (req, res) => {
             const Categories = new Set();
             for (const key in data) {
                 // console.log(key);
-                console.log(data[key]);
+                // console.log(data[key]);
                 const value = data[key];
                 // console.log('(x축값) 날짜: ', value.ADJ_DT); // 날짜는 x축 카테고리들 리스트(Set)으로 적용
                 // console.log('(name) 품목 : ', value.PUMMOK); // 품목은 name으로 적용
@@ -293,6 +293,64 @@ app.get('/data/2', (req, res) => {
             }
 
             // 5 전달
+            res.json(result);
+        })
+        .catch((err) => {
+            console.log(err);
+            res.sendStatus(500);
+        });
+});
+
+app.get('/data/3', (req, res) => {
+    // 111 s3 데이터를 받는다 (3번꺼)
+    _getData('3')
+        .then((data) => {
+            res.setHeader('Content-Type', 'application/json');
+
+            // console.log(data);
+            data = JSON.parse(data);
+
+            const Data = {};
+            const Categories = new Set();
+            for (const key in data) {
+                // console.log(key);
+                // console.log(data[key]);
+                const value = data[key];
+                // console.log('(x축값) 날짜: ', value.ADJ_DT); // 날짜는 x축 카테고리들 리스트(Set)으로 적용
+                // console.log('(name) 품목 : ', value.PUMMOK); // 품목은 name으로 적용
+                // console.log('(y축값) 값 : ', value.PRICE); // 값(리스트)은 y축으로 적용
+
+                // 222 이걸 가공한다
+                // 품목별로 데이터 정리
+                if (Data[value.PUMMOK] === undefined) {
+                    Data[value.PUMMOK] = [];
+                }
+
+                Categories.add(value.ADJ_DT);
+                Data[value.PUMMOK].push(value.PRICE);
+            }
+
+            // console.log([...Categories]);   // Set -> Array
+            // console.log(Data);
+
+            const series = [];
+            for (const key in Data) {
+
+                // console.log(key);
+                // console.log(Data[key]);
+
+                series.push({
+                    name: key,
+                    data: Data[key]
+                });
+            }
+
+            // 333 최종 전달할 json 데이터 프레임 가져온다
+            const result = {
+                categories: [...Categories],
+                series: series
+            }
+
             res.json(result);
         })
         .catch((err) => {
