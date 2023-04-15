@@ -26,6 +26,17 @@
                         })
                         .catch(error => console.error(error));
 
+                    fetch('/data/2')
+                        .then(response => response.json())
+                        .then(data => {
+                            // console.log(typeof(data));
+                            const jsonData = JSON.stringify(data, null, 2);
+                            // console.log(typeof(jsonData));
+
+                            // document.getElementById('data').innerHTML = '<pre>' + jsonData + '</pre>';
+                            render_chart2(data);
+                        })
+                        .catch(error => console.error(error));
                 </script>
 
                 <!-- sg-data1/0403-0408/max_mean_min_raw.json -->
@@ -76,8 +87,8 @@
 
                     // 표시용 데이터를 분류하고, 그래프를 그린다.
                     function render_chart1(series) {
-                        classified_series = classify_data(series);
-                        
+                        let classified_series = classify_chart1_data(series);
+
                         options_chart1.series = classified_series;
 
                         var chart = new ApexCharts(document.querySelector("#chart1"), options_chart1);
@@ -85,10 +96,10 @@
                     }
 
                     // 표시용 데이터를 분류한다.
-                    function classify_data(series) {
+                    function classify_chart1_data(series) {
                         var classified_series = [];
                         // console.log(series);
-                        
+
                         for (var i = 0; i < series.length; i++) {
                             namesplit = series[i].name.split('-');
                             // console.log(namesplit);
@@ -329,25 +340,69 @@
                 <!-- sg-data1/0403-0408/date_pummok_mean.json -->
                 <div id="chart2" style="padding:0 200px"></div>
                 <script>
-                    var options = {
+                    var options_chart2 = {
                         chart: {
                             type: 'line'
                         },
-                        series: [{
-                            name: 'sales',
-                            data: [30, 40, 35, 50, 49, 60, 70, 91, 125]
-                        }],
+                        series: [],
                         xaxis: {
-                            categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999]
+                            categories: []
                         },
                         title: {
                             text: '날짜별 품목별 평균가격'
                         },
                     }
+                    var viewoption_chart2 = {
+                        PUMMOK: ['감귤', '감자', '배추']
+                    }
 
-                    var chart = new ApexCharts(document.querySelector("#chart2"), options);
+                    // 표시용 데이터를 분류하고, 그래프를 그린다.
+                    function render_chart2(series) {
+                        let classified_series = classify_chart2_data(series.series);
 
-                    chart.render();
+                        options_chart2.series = classified_series;
+                        options_chart2.xaxis.categories = series.categories;
+
+                        var chart = new ApexCharts(document.querySelector("#chart2"), options_chart2);
+                        chart.render();
+                    }
+
+                    function classify_chart2_data(series) {
+                        var classified_series = [];
+                        var temp_viewoption_chart2 = viewoption_chart2.PUMMOK;
+
+                        // console.log(series);
+                        // console.log(series.categories);
+                        // console.log(series.series);
+
+                        console.log(temp_viewoption_chart2);
+
+                        for (var i = 0; i < series.length; i++) {
+                            if (temp_viewoption_chart2.length == 0) {
+                                break;
+                            }
+
+                            var data = series[i];
+
+                            // console.log(data);
+                            // console.log(data.name); 
+                            // console.log(data.data);
+
+                            const isValuePresent = temp_viewoption_chart2.includes(data.name);
+                            // console.log(temp_viewoption_chart2.length);
+
+                            if (isValuePresent) {
+                                classified_series.push(data);
+                                // console.log(data.name);
+                                temp_viewoption_chart2 = temp_viewoption_chart2.filter((value) => value !== data.name);
+                            }
+                        }
+
+                        return classified_series;
+                    }
+
+                    // var chart = new ApexCharts(document.querySelector("#chart2"), options_chart2);
+                    // chart.render();
                 </script>
 
                 <!-- sg-data1/0403-0408/date_pummok_uun.json -->
