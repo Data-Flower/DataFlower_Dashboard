@@ -16,6 +16,8 @@ AWS.config.update({
     secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
 })
 
+//#region S3
+
 const s3 = new AWS.S3();
 
 app.get('/data/NH/test', (req, res) => {
@@ -89,10 +91,33 @@ app.get('/data/NH/:id', (req, res) => {
     // res.send(key);
 });
 
+//#endregion S3
+
+//#region datas
+
+app.get('/data/1', (req, res) => {
+    const jsonData = {
+        "name": "John",
+        "age": 30,
+        address: {
+            city: 'New York',
+            state: 'NY',
+            country: 'USA'
+        }
+    };
+
+    res.setHeader('Content-Type', 'application/json');
+    res.send(JSON.stringify(jsonData));
+});
+
+//#endregion datas
+
 app.get('/', (req, res) => {
 
     res.render('pages/home');
 });
+
+//#region files
 
 app.get('/css/:name.css', (req, res) => {
     const name = req.params.name;
@@ -115,6 +140,15 @@ app.get('/icons/:name.svg', (req, res) => {
     res.sendFile(path.join(__dirname, `icons/${name}.svg`));
 });
 
+//#endregion files
+
+
+app.listen(port, function () {
+    console.log('listening on ', port);
+});
+
+//#region pages
+
 app.get('/pages/:name', (req, res) => {
 
     const name = req.params.name;
@@ -122,10 +156,6 @@ app.get('/pages/:name', (req, res) => {
     console.log(path.join(__dirname, `pages/${name}.ejs`));
     // res.sendFile(path.join(__dirname, `pages/${name}.html`));
     res.render(`pages/${name}`);
-});
-
-app.listen(port, function () {
-    console.log('listening on ', port);
 });
 
 app.get('/apex/:tp/:id', (req, res) => {
@@ -142,3 +172,5 @@ app.get('/apex/:tp/:id', (req, res) => {
 
     res.render(`samples/${tp}/apex_${tp}_${id}`);
 });
+
+//#endregion pages
