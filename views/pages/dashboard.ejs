@@ -3,6 +3,65 @@
 
 <head>
     <%- include('../partials/head'); %>
+        <style>
+            .moving-image {
+                position: absolute;
+                animation: move-image 5s forwards infinite;
+            }
+
+            .distorted-image {
+                animation: rotate-and-distort 2s linear infinite;
+            }
+
+            @keyframes rotate-and-distort {
+                0% {
+                    transform: translate(10%, 10%)scale(1);
+                    /* start with the image at its original rotation and distortion */
+                }
+
+                70% {
+                    transform: translate(30%, 20%) scale(0.7);
+                    /* rotate the image 180 degrees and skew it horizontally by -20 degrees and vertically by 10 degrees */
+                }
+
+                90% {
+                    transform: translate(50%, 35%) scale(0.2);
+                }
+
+                100% {
+                    transform: translate(60%, 60%)skew(0deg, 0deg) scale(0);
+                    /* rotate the image 360 degrees back to its original rotation and distortion */
+                }
+            }
+
+            .home {
+                height: 100vh;
+                display: flex;
+                /* justify-content: space-between; */
+                align-items: center;
+                padding: 0 10%;
+            }
+
+            .dashboard-home-contents {
+                min-width: 400px;
+                max-width: 60%;
+            }
+
+            .dashboard-home-contents h1 {
+                font-size: 56px;
+                font-weight:700;
+            }
+
+            .dashboard-home-contents h3 {
+                font-size:  32px;
+                font-weight: 700;
+                color: #00abf0;
+            }
+
+            .dashboard-home-contents p {
+                font-size: 16px;
+            }
+        </style>
 </head>
 
 <body>
