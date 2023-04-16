@@ -3,6 +3,23 @@
 
 <head>
     <%- include('../partials/head'); %>
+    <style>
+        #chart_row1 {
+            padding: 0 10%;
+            display: flex;
+            justify-content: center;
+        }
+
+        #chart1, #chart3 {
+            width: 50%;
+            text-align: center;
+        }
+
+        #chart2 {
+            padding: 0 10%;
+            text-align: center;
+        }
+    </style>
         <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 </head>
 
@@ -52,7 +69,11 @@
                 </script>
 
                 <!-- sg-data1/0403-0408/max_mean_min_raw.json -->
-                <div id="chart1" style="padding: 0 200px;"></div>
+                <div id="chart_row1">
+                    <div id="chart1"></div>
+                    <div id="chart3"></div>
+                </div>
+                <!-- <div id="chart1" style="padding: 0 20%;"></div> -->
                 <script>
                     var options_chart1 = {
                         series: [],
@@ -350,7 +371,7 @@
                 </script>
 
                 <!-- sg-data1/0403-0408/date_pummok_mean.json -->
-                <div id="chart2" style="padding:0 200px"></div>
+                <div id="chart2"></div>
                 <script>
                     var options_chart2 = {
                         chart: {
@@ -415,7 +436,7 @@
                 </script>
 
                 <!-- sg-data1/0403-0408/date_pummok_uun.json -->
-                <div id="chart3" style="padding:0 200px"></div>
+                <!-- <div id="chart3" style="padding:0 20%"></div> -->
                 <script>
                     var options_chart3 = {
                         series: [{
